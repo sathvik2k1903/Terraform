@@ -1,0 +1,13 @@
+terraform init     -it will checks the plugins what has to be downloaded
+terraform validate -it checks the code is in correct format
+terraform plan     -it dry runs the code but doesn't execute code
+terraform apply    - it will actually execute the code
+terraform destroy  - it destroyes the infrastructure all you had managed till now
+
+resource "azurerm_resource_group" "name" {
+  name     ="resource group name"
+  location ="east us 2"
+}
+In the resource first double quotes indicates key which is default cannot be changed.
+the second  one indicates value which we will give a name ,that name only we have to mention within the code blocks to the entire resource.
+the name indicates new resource group will be created backend in the cloud.

@@ -1,0 +1,7 @@
+resource_group_name              = "myvm_rg"
+resource_group_location          = "West Europe"
+virtual_network_name             = "vnetprod019"
+subnet_name                      = "subnet019"
+public_ip_name                   = "publicip212"
+network_interface_name           = "nicprod019"
+azurerm_windows_virtual_machine  = "windowsvm019"
