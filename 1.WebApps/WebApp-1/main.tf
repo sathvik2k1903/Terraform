@@ -6,7 +6,7 @@ terraform{
       #container_name       = "tfcontainer7447"
       #key                  = "terraform.tfstate"
       #use_azuread_auth     = "true"
-      #subscription_id      = "78c4aad5-9675-4f40-b221-ca21bb1b1cea"
+      #subscription_id      = "dda14da7-c86b-457c-a8a9-fb29747c8663"
   }
 }
 # Total number of resources -3
