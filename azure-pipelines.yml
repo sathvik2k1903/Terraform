@@ -33,7 +33,7 @@ stages:
 
 # deploy stage
   - stage: "Deploy"
-    condition: false
+    condition: true
     jobs:
        -  job: "Deploy"
           displayName: Deploy job
@@ -45,10 +45,6 @@ stages:
                 buildType: 'current'
                 downloadType: 'single'
                 downloadPath: '$(System.ArtifactsDirectory)'
-
-#           - task: TerraformInstaller@0
-#             inputs:
-#              terraformVersion: 'latest'
 
            -  task: TerraformTaskV3@3
               displayName: Terraform init
