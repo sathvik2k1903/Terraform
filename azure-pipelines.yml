@@ -47,7 +47,7 @@ stages:
                 downloadPath: '$(System.ArtifactsDirectory)'
            -  task: TerraformInstaller@0
               inputs:
-                terraformVersion: 'latest'
+                terraformVersion: '1.3.4'
            -  task: TerraformTaskV3@3
               displayName: Terraform init
               inputs:
