@@ -80,7 +80,3 @@ stages:
                 command: 'apply'
                 commandOptions: 'tfplan -auto-approve'
                 environmentServiceNameAzureRM: 'Sathvik Azure'
-
-- task: TerraformInstaller@0
-  inputs:
-    terraformVersion: 'latest'
