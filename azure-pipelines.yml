@@ -48,7 +48,7 @@ stages:
            -  task: TerraformInstaller@0
               displayName: Terraform install
               inputs:
-                terraformVersion: 'latest'
+              terraformVersion: 'latest'
 
            -  task: TerraformTaskV3@3
               displayName: Terraform init
@@ -80,3 +80,7 @@ stages:
                 command: 'apply'
                 commandOptions: 'tfplan -auto-approve'
                 environmentServiceNameAzureRM: 'Sathvik Azure'
+
+- task: TerraformInstaller@0
+  inputs:
+    terraformVersion: 'latest'
