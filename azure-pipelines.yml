@@ -45,7 +45,9 @@ stages:
                 buildType: 'current'
                 downloadType: 'single'
                 downloadPath: '$(System.ArtifactsDirectory)'
-
+           -  task: TerraformInstaller@0
+              inputs:
+                terraformVersion: 'latest'
            -  task: TerraformTaskV3@3
               displayName: Terraform init
               inputs:
@@ -71,6 +73,7 @@ stages:
                 environmentServiceNameAzureRM: 'Sathvik Azure'
 
            -  task: TerraformTaskV3@3
+              displayName: Terraform apply
               inputs:
                 provider: 'azurerm'
                 command: 'apply'
