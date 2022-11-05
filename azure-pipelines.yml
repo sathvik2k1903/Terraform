@@ -56,7 +56,7 @@ stages:
                 inputs:
                  provider: 'azurerm'
                  command: 'init'
-                 workingDirectory: '$(System.DefaultWorkingDirectory)'
+                 workingDirectory: '$(System.DefaultWorkingDirectory)\drop'
                  backendServiceArm: 'Sathvik Azure'
                  backendAzureRmResourceGroupName: 'tf-storage-rg'
                  backendAzureRmStorageAccountName: 'tfstorage7447'
@@ -68,14 +68,14 @@ stages:
                inputs:
                 provider: 'azurerm'
                 command: 'validate'
-                workingDirectory: '$(System.DefaultWorkingDirectory)'
+                workingDirectory: '$(System.DefaultWorkingDirectory)\drop'
 
             -  task: TerraformTaskV3@3
                displayName: Terraform plan
                inputs:
                 provider: 'azurerm'
                 command: 'plan'
-                workingDirectory: '$(System.DefaultWorkingDirectory)'
+                workingDirectory: '$(System.DefaultWorkingDirectory)\drop'
                 commandOptions: '-out=tfplan'
                 environmentServiceNameAzureRM: 'Sathvik Azure'
 
@@ -84,7 +84,7 @@ stages:
                inputs:
                 provider: 'azurerm'
                 command: 'apply'
-                workingDirectory: '$(System.DefaultWorkingDirectory)'
+                workingDirectory: '$(System.DefaultWorkingDirectory)\drop'
                 commandOptions: '-auto-approve'
                 environmentServiceNameAzureRM: 'Sathvik Azure'
 
