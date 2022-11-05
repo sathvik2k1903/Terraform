@@ -44,7 +44,7 @@ stages:
                 inputs:
                   buildType: 'current'
                   downloadType: 'single'
-                  downloadPath: '$(System.DefaultWorkingDirectory)/_Terraform-Build/drop'
+                  downloadPath: '$(System.DefaultWorkingDirectory)/_Terraform-Build'
 
             -  task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
                displayName: 'Terraform install'
@@ -56,7 +56,7 @@ stages:
                 inputs:
                  provider: 'azurerm'
                  command: 'init'
-                 workingDirectory: '$(System.DefaultWorkingDirectory)/_Terraform-Build/drop'
+                 workingDirectory: '$(System.DefaultWorkingDirectory)/_Terraform-Build'
                  backendServiceArm: 'Sathvik Azure'
                  backendAzureRmResourceGroupName: 'tf-storage-rg'
                  backendAzureRmStorageAccountName: 'tfstorage7447'
@@ -68,14 +68,14 @@ stages:
                inputs:
                 provider: 'azurerm'
                 command: 'validate'
-                workingDirectory: '$(System.DefaultWorkingDirectory)/_Terraform-Build/drop'
+                workingDirectory: '$(System.DefaultWorkingDirectory)/_Terraform-Build'
 
             -  task: TerraformTaskV3@3
                displayName: Terraform plan
                inputs:
                 provider: 'azurerm'
                 command: 'plan'
-                workingDirectory: '$(System.DefaultWorkingDirectory)/_Terraform-Build/drop'
+                workingDirectory: '$(System.DefaultWorkingDirectory)/_Terraform-Build'
                 commandOptions: '-out=tfplan'
                 environmentServiceNameAzureRM: 'Sathvik Azure'
 
@@ -84,7 +84,7 @@ stages:
                inputs:
                 provider: 'azurerm'
                 command: 'apply'
-                workingDirectory: '$(System.DefaultWorkingDirectory)/_Terraform-Build/drop'
+                workingDirectory: '$(System.DefaultWorkingDirectory)/_Terraform-Build'
                 commandOptions: '-auto-approve'
                 environmentServiceNameAzureRM: 'Sathvik Azure'
 
