@@ -33,7 +33,7 @@ stages:
 
 # deploy stage
   - stage: "Deploy"
-    condition: false
+    condition: true
     jobs:
        -  job: "Deploy"
           displayName: Deploy job
