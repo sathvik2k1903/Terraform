@@ -44,7 +44,7 @@ stages:
                 inputs:
                   buildType: 'current'
                   downloadType: 'single'
-                  downloadPath: '$(System.ArtifactsDirectory)'
+                  downloadPath: '$(System.DefaultWorkingDirectory)/_Terraform-Build/drop'
 
             -  task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
                displayName: 'Terraform install'
