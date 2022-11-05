@@ -39,42 +39,44 @@ stages:
           displayName: Deploy job
           steps:
 
-           -  task: DownloadBuildArtifacts@1
-              displayName: Download Build Artifact
-              inputs:
-                buildType: 'current'
-                downloadType: 'single'
-                downloadPath: '$(System.ArtifactsDirectory)'
-           -  task: TerraformInstaller@0
-              inputs:
-                terraformVersion: '1.3.4'
-           -  task: TerraformTaskV3@3
-              displayName: Terraform init
-              inputs:
-                provider: 'azurerm'
-                command: 'init'
-                backendServiceArm: 'Sathvik Azure'
-                backendAzureRmResourceGroupName: 'tf-storage-rg'
-                backendAzureRmStorageAccountName: 'tfstorage7447'
-                backendAzureRmContainerName: 'tfcontainer7447'
-                backendAzureRmKey: 'terraform.tfstate'
-           -  task: TerraformTaskV3@3
-              displayName: Terraform validate
-              inputs:
+            -   task: DownloadBuildArtifacts@1
+                displayName: Download Build Artifact
+                inputs:
+                  buildType: 'current'
+                  downloadType: 'single'
+                  downloadPath: '$(System.ArtifactsDirectory)'
+
+            -  task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
+               displayName: 'Use Terraform latest'
+  
+            -   task: TerraformTaskV3@3
+                displayName: Terraform init
+                inputs:
+                 provider: 'azurerm'
+                 command: 'init'
+                 backendServiceArm: 'Sathvik Azure'
+                 backendAzureRmResourceGroupName: 'tf-storage-rg'
+                 backendAzureRmStorageAccountName: 'tfstorage7447'
+                 backendAzureRmContainerName: 'tfcontainer7447'
+                 backendAzureRmKey: 'terraform.tfstate'
+
+            -  task: TerraformTaskV3@3
+               displayName: Terraform validate
+               inputs:
                 provider: 'azurerm'
                 command: 'validate'
 
-           -  task: TerraformTaskV3@3
-              displayName: Terraform plan
-              inputs:
+            -  task: TerraformTaskV3@3
+               displayName: Terraform plan
+               inputs:
                 provider: 'azurerm'
                 command: 'plan'
                 commandOptions: '-out=tfplan'
                 environmentServiceNameAzureRM: 'Sathvik Azure'
 
-           -  task: TerraformTaskV3@3
-              displayName: Terraform apply
-              inputs:
+            -  task: TerraformTaskV3@3
+               displayName: Terraform apply
+               inputs:
                 provider: 'azurerm'
                 command: 'apply'
                 commandOptions: 'tfplan -auto-approve'
