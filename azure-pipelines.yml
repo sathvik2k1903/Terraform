@@ -89,9 +89,9 @@ stages:
                 environmentServiceNameAzureRM: 'Sathvik Azure'
 
 
-            - task: TerraformTaskV3@3
+#            - task: TerraformTaskV3@3
               displayName: Terraform destroy
-              inputs:
+#              inputs:
                 provider: 'azurerm'
                 command: 'destroy'
                 workingDirectory: '$(System.DefaultWorkingDirectory)\drop'
