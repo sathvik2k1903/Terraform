@@ -46,7 +46,7 @@ stages:
                   downloadType: 'single'
                   downloadPath: '$(System.DefaultWorkingDirectory)'
 
-            -  task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
+            -  task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@1
                displayName: 'Terraform install'
                inputs:
                 terraformVersion: 1.3.4
