@@ -73,11 +73,11 @@ stages:
             -  task: TerraformTaskV3@3
                displayName: Terraform plan
                inputs:
-                provider: 'azurerm'
-                command: 'plan'
-                workingDirectory: '$(System.DefaultWorkingDirectory)\drop'
-                commandOptions: '-out=tfplan'
-                environmentServiceNameAzureRM: 'Sathvik Azure'
+                 provider: 'azurerm'
+                 command: 'plan'
+                 workingDirectory: '$(System.DefaultWorkingDirectory)\drop'
+                 commandOptions: '-out=tfplan'
+                 environmentServiceNameAzureRM: 'Sathvik Azure'
 
             -  task: TerraformTaskV3@3
                displayName: Terraform apply
