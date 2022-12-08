@@ -90,7 +90,7 @@ stages:
 
 
 #            - task: TerraformTaskV3@3
-              displayName: Terraform destroy
+#              displayName: Terraform destroy
 #              inputs:
                 provider: 'azurerm'
                 command: 'destroy'
